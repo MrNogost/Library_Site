@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Inventory</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <header>
+        <h1>Online Library</h1>
+        <nav>
+            <ul>
+                <li>
+                    <form action="/home" method="GET">
+                        <button type="submit">🏠 Home</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/inventory" method="GET">
+                        <button type="submit">📚 Inventory</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/borrow" method="GET">
+                        <button type="submit">📖 Borrow</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/return" method="GETT">
+                        <button type="submit">🔄 Return</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Library Inventory</h2>
+
+        <div class="button-group">
+            <form action="/viewAll" method="GET">
+                <button type="submit">📚 View All Books</button>
+            </form>
+
+            <form action="/addBook" method="GET">
+                <button type="submit">➕ Add Book</button>
+            </form>
+
+            <form action="/updateBook" method="GET">
+                <button type="submit">✏️ Update Book</button>
+            </form>
+
+            <form action="/deleteBook" method="GET">
+                <button type="submit">❌ Delete Book</button>
+            </form>
+
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 No Copyright</p>
+    </footer>
+</body>
+</html>

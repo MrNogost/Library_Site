@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="htpp://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <header>
+        <h1>Online Library</h1>
+        <nav>
+            <ul>
+                <li>
+                    <form action="/home" method="GET">
+                        <button type="submit">🏠 Home</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/inventory" method="GET">
+                        <button type="submit">📚 Inventory</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/borrow" method="GET">
+                        <button type="submit">📖 Borrow</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/return" method="GET">
+                        <button type="submit">🔄 Return</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>About the Library</h2>
+            <p>Online system for controlling the flow of books in my library. Author Mario Arreola Arriola</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 No Copyright</p>
+    </footer>
+</body>
+</html>

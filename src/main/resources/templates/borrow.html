@@ -1,0 +1,68 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Starts the HTML document and sets the language to English -->
+<head>
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper rendering on different devices -->
+    <title>Borrow Book</title> <!-- Sets the title of the page that appears in the browser tab -->
+    <link rel="stylesheet" href="styles.css"> <!-- Links to the external CSS file for styling -->
+</head>
+<body>
+    <header>
+        <h1>Online Library</h1>
+        <nav>
+            <ul>
+                <li>
+                    <form action="/home" method="GET">
+                        <button type="submit">🏠 Home</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/inventory" method="GET">
+                        <button type="submit">📚 Inventory</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/borrow" method="GET">
+                        <button type="submit">📖 Borrow</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/return" method="GET">
+                        <button type="submit">🔄 Return</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Borrow a Book</h2> <!-- Main heading of the page -->
+
+        <!-- Form for borrowing a book -->
+        <form action="/borrowBook" method="POST"> <!-- Defines a form that submits data to the /borrowBook URL using POST method -->
+            <label for="borrowBookId">Enter Book ID:</label> <!-- Label for the input field, associated with the input by ID -->
+            <input type="text" id="borrowBookId" name="bookId" required> <!-- Input field for the user to enter the book ID; required attribute ensures the field is filled out -->
+            <button type="submit">📖 Borrow Book</button> <!-- Button that submits the form -->
+        </form>
+        <!-- This form sends a POST request to borrow a book by its ID -->
+
+        <!-- Form to view all borrowed books -->
+        <form action="/viewBorrowedBooks" method="GET"> <!-- Defines a form that submits a request to view borrowed books using GET method -->
+            <button type="submit">👁️ View Borrowed Books</button> <!-- Button that submits the form to view borrowed books -->
+        </form>
+        <!-- This form sends a GET request to display all currently borrowed books -->
+
+        <!-- Form for returning a book -->
+        <form action="/returnBook" method="POST"> <!-- Defines a form that submits data to the /returnBook URL using POST method -->
+            <label for="returnBookId">Enter Book ID to Return:</label> <!-- Label for the input field, associated with the input by ID -->
+            <input type="text" id="returnBookId" name="bookId" required> <!-- Input field for the user to enter the book ID to return; required attribute ensures the field is filled out -->
+            <button type="submit">🔄 Return Book</button> <!-- Button that submits the form -->
+        </form>
+        <!-- This form sends a POST request to return a book by its ID -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 No Copyright</p>
+    </footer>
+</body>
+</html>

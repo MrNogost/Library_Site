@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Books</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Online Library</h1>
+        <nav>
+            <ul>
+                <li>
+                    <form action="/home" method="GET">
+                        <button type="submit">🏠 Home</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/inventory" method="GET">
+                        <button type="submit">📚 Inventory</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/borrow" method="GET">
+                        <button type="submit">📖 Borrow</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/return" method="GET">
+                        <button type="submit">🔄 Return</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Return Your Book</h2>
+            <form action="/return" method="post">
+                <label for="book">Select Book to Return:</label>
+                <select id="book" name="book">
+                    <option value="gatsby">The Great Gatsby</option>
+                    <option value="1984">1984</option>
+                </select>
+                <br><br>
+                <label for="username">Your Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br><br>
+                <input type="submit" value="Return">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 No Copyright</p>
+    </footer>
+</body>
+</html>

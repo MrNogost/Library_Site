@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="htpp://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Management System</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
     <header>
@@ -31,19 +31,17 @@
                         <button type="submit">🔄 Return</button>
                     </form>
                 </li>
-				<!--<li>
-				    <form action="/signin" method="GET">
-				    <button type="submit">🔑 Sign In</button>
-				    </form>
-				</li> -->
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
-            <h2>About the Library</h2>
-            <p>Online system for controlling the flow of books in my library. Author Mario Arreola Arriola</p>
+        <section th:if="${success}">
+            <h2>The book '<span th:text="${bookName}"></span>' was added correctly</h2>
+        </section>
+
+        <section th:if="${!success}">
+            <h2>Error, the book '<span th:text="${bookName}"></span>' couldn't be added</h2>
         </section>
     </main>
 

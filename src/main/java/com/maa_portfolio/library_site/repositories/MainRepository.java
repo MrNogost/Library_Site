@@ -31,4 +31,16 @@ public class MainRepository {
 		return jdbc.query(sql, inventoryRowMapper);
 	}
 	
+	public boolean addBook(Book book) {
+		String sql = "INSERT INTO inventory VALUES (?,?,?,?)";
+		
+		int value = jdbc.update(sql,
+				book.getName(),
+				book.getAuthor(),
+				book.getIsbn(),
+				book.getQty());
+		
+		if(value == 1) return true;
+		else return false;
+	}
 }

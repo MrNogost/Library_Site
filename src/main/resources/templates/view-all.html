@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Online Library</h1>
+        <nav>
+            <ul>
+                <li>
+                    <form action="/home" method="GET">
+                        <button type="submit">🏠 Home</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/inventory" method="GET">
+                        <button type="submit">📚 Inventory</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/borrow" method="GET">
+                        <button type="submit">📖 Borrow</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/return" method="GET">
+                        <button type="submit">🔄 Return</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>Book Inventory</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through the books list -->
+                    <tr th:each="book : ${books}">
+                        <td th:text="${book.name}"></td>
+                        <td th:text="${book.author}"></td>
+                        <td th:text="${book.isbn}"></td>
+                        <td th:text="${book.qty}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Pagination Controls -->
+            <div class="pagination">
+                <button th:if="${currentPage > 1}" 
+                        th:attr="onclick=@{'/books?page=' + (${currentPage} - 1)}">Previous</button>
+                <span>Page <span th:text="${currentPage}"></span> of <span th:text="${totalPages}"></span></span>
+                <button th:if="${currentPage < totalPages}" 
+                        th:attr="onclick=@{'/books?page=' + (${currentPage} + 1)}">Next</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 No Copyright</p>
+    </footer>
+</body>
+</html>

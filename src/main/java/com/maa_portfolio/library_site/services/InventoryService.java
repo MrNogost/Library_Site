@@ -29,4 +29,13 @@ public class InventoryService {
 		boolean state = mainRepository.addBook(book);
 		return state;
 	}
+	
+	public boolean deleteBook(String name, String author, int isbn) {
+		Book book = new Book();
+		book.setName(name);
+		book.setAuthor(author);
+		book.setIsbn(isbn);
+		boolean state = mainRepository.deleteBook(book);
+		return state;
+	}
 }

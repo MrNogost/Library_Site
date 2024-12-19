@@ -46,4 +46,22 @@ public class inventoryController {
 		model.addAttribute("bookName",name);
 		return "addBookConfirmation.html";
 	}
+	@GetMapping("/deleteBook")
+	public String deleteBook() {
+		return "deleteBook.html";
+	}
+	
+	@PostMapping("/deleteConfirmation")
+	public String deleteConfirmation(
+			@RequestParam String name,
+			@RequestParam String author,
+			@RequestParam int isbn,
+			Model model) {
+		boolean success = inventoryService.deleteBook(name, author, isbn);
+		model.addAttribute("success",success);
+		model.addAttribute("bookName",name);
+		List<Book> books = inventoryService.retrieveAll();
+		model.addAttribute("books",books);
+		return "view-all-deleted.html";
+	}
 }

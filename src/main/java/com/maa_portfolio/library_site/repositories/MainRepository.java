@@ -44,6 +44,17 @@ public class MainRepository {
 		else return false;
 	}
 	
+	public boolean updateBook(Book book) {
+		String verifyQuery = "SELECT COUNT(*) FROM inventory WHERE isbn = ?";
+		int count = jdbc.queryForObject(verifyQuery, Integer.class, book.getIsbn());
+		
+		if(count > 0) {
+			String updateQuery = "UPDATE inventory SET name = ?, author = ?, qty = ? WHERE isbn = ?";;
+            int rowsAffected = jdbc.update(updateQuery, book.getName(), book.getAuthor(), book.getQty(),  book.getIsbn());
+            return rowsAffected > 0;
+		}
+		else return false;
+	}
 	public boolean deleteBook(Book book) {
 		String verifyQuery = "SELECT COUNT(*) FROM inventory WHERE isbn = ? AND name = ? AND author = ?";
 		int count = jdbc.queryForObject(verifyQuery, Integer.class, book.getIsbn(), book.getName(), book.getAuthor());

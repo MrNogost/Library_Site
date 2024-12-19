@@ -30,6 +30,15 @@ public class InventoryService {
 		return state;
 	}
 	
+	public boolean updateBook(String name, String author, int isbn, int qty) {
+		Book book = new Book();
+		book.setName(name);
+		book.setAuthor(author);
+		book.setIsbn(isbn);
+		book.setQty(qty);
+		boolean state = mainRepository.updateBook(book);
+		return state;
+	}
 	public boolean deleteBook(String name, String author, int isbn) {
 		Book book = new Book();
 		book.setName(name);

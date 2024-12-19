@@ -46,6 +46,28 @@ public class inventoryController {
 		model.addAttribute("bookName",name);
 		return "addBookConfirmation.html";
 	}
+	
+	@GetMapping("/updateBook")
+	public String updateBook() {
+		return "updateBook.html";
+	}
+	
+	@PostMapping("/updateConfirmation")
+	public String updateConfirmation(
+			@RequestParam String name,
+			@RequestParam String author,
+			@RequestParam int isbn,
+			@RequestParam int qty,
+			Model model
+			) {
+		boolean success = inventoryService.updateBook(name, author, isbn,qty);
+		model.addAttribute("success",success);
+		model.addAttribute("bookName",name);
+		List<Book> books = inventoryService.retrieveAll();
+		model.addAttribute("books",books);
+		return "view-all-updated.html";
+	}
+	
 	@GetMapping("/deleteBook")
 	public String deleteBook() {
 		return "deleteBook.html";
